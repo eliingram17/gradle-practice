@@ -24,19 +24,8 @@ checkstyle {
 dependencies {
   testImplementation(platform("org.junit:junit-bom:5.10.1"))
   testImplementation("org.junit.jupiter:junit-jupiter")
-  testRuntimeOnly("org.junit.platform: junit-platform-launcher")
 }
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
-}
-tasks.named<JavaCompile>("compileTestJava") {
-    doFirst {
-        classpath.forEach{
-            println(it)
-        }
-        sourceSets.named("test").get().let {
-            println(it);
-        }
-    }
 }
